@@ -1,5 +1,4 @@
 import React from 'react'
-import Spline from '@splinetool/react-spline'
 import { motion } from 'framer-motion'
 
 const Hero = () => {
@@ -10,13 +9,19 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[92vh] w-full bg-black text-white overflow-hidden">
-      {/* Spline background */}
+      {/* Monochrome animated background (subtle, no imagery) */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/zhZFnwyOYLgqlLWk/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.06),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.05),transparent_45%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.04),transparent_40%)]" />
+        <motion.div
+          aria-hidden
+          initial={{ opacity: 0.25, scale: 1 }}
+          animate={{ opacity: [0.25, 0.4, 0.25], scale: [1, 1.03, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -inset-24 rounded-[50%] bg-[radial-gradient(circle,rgba(255,255,255,0.06)_0%,transparent_60%)]"/>
       </div>
 
-      {/* Dark gradient overlay for contrast (non-blocking) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+      {/* Dark gradient overlay for contrast */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/70 to-black/80" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-8 pt-28 pb-24 flex flex-col items-center text-center">
@@ -38,10 +43,10 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05, duration: 0.7 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight max-w-4xl"
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight max-w-5xl"
           style={{ letterSpacing: '-0.02em' }}
         >
-          Unlock Your Mindset. Transform Your Life in 30 Days.
+          A 30-Day Guide to Hit Your Goals — Clear, Actionable, Proven.
         </motion.h1>
 
         <motion.p
@@ -50,7 +55,7 @@ const Hero = () => {
           transition={{ delay: 0.15, duration: 0.7 }}
           className="mt-5 text-base sm:text-lg text-white/80 max-w-2xl"
         >
-          Download the Mindset Of JB 30-Day Guide and start your breakthrough today.
+          Learn the exact structure I use: SMART + WOOP, a powerful “Why”, visual priming, daily accountability, if–then planning, and a reward system to lock in momentum.
         </motion.p>
 
         <motion.div
